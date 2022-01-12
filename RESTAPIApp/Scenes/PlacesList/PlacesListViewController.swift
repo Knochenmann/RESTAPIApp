@@ -24,6 +24,7 @@ class PlacesListViewController: UIViewController {
     }()
     
     private let refreshControl = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView()
     
     private let generatePlaceButton: UIButton = {
         let button = UIButton()
@@ -44,6 +45,7 @@ class PlacesListViewController: UIViewController {
         navigationControllerSetup()
         tableViewSetup()
         refreshControlSetup()
+        activityIndicatorSetup()
         generatePlaceButtonSetup()
         fetchPlaces()
     }
@@ -73,6 +75,21 @@ class PlacesListViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
+    private func activityIndicatorSetup() {
+        view.addSubview(activityIndicator)
+        activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
+            ]
+        )
+        activityIndicator.startAnimating()
+        
+    }
+    
     @objc private func fetchPlaces() {
         placesManager.fetchPlaces { [unowned self] places in
             refreshControl.endRefreshing()
@@ -81,6 +98,7 @@ class PlacesListViewController: UIViewController {
                 return
             }
             self.places = places
+            activityIndicator.stopAnimating()
             tableView.reloadData()
         }
     }
@@ -123,11 +141,14 @@ class PlacesListViewController: UIViewController {
             latitude: coordenatesGenerator.latitude(),
             longitude: coordenatesGenerator.longitude()
         )
+        activityIndicator.startAnimating()
         placesManager.push(place: newPlace) { [unowned self] place in
             guard let place = place else {
-                showAlert(title: "СМОТРИ В КОНСОЛЬ!", message: "Статус код в диапазоне 200...299. Просто сервер не сохраняет!")
+                activityIndicator.stopAnimating()
+                showAlert(title: "Возникла ошибка", message: "Попробуйте повторить операцию позже.")
                 return
             }
+            activityIndicator.stopAnimating()
             places.append(place)
             tableView.insertRows(at: [IndexPath(row: places.count - 1, section: 0)], with: .automatic)
         }
@@ -138,6 +159,22 @@ class PlacesListViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+    
+    private func deletePlace(at indexPath: IndexPath) {
+        activityIndicator.startAnimating()
+        let placeToDelete = places[indexPath.row]
+        placesManager.removePlace(placeToDelete) { [unowned self] error in
+            if let error = error {
+                print(error)
+                activityIndicator.stopAnimating()
+                showAlert(title: "Возникла ошибка", message: "Не удалось удалить \(placeToDelete.name).")
+                return
+            }
+            activityIndicator.stopAnimating()
+            places.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     private func showMap(for place: Place) {
@@ -174,6 +211,16 @@ extension PlacesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         showMap(for: places[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deletePlace(at: indexPath)
+        }
     }
     
 }

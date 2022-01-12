@@ -115,10 +115,10 @@
 		F6C5DBB3278B1A4C00F87354 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F60688CD278E1E0B00E99BF0 /* Networking */,
 				F6C5DBB4278B1A6D00F87354 /* StringService.swift */,
 				F6C5DBC0278B6D7600F87354 /* CoordinatesGeneratorService.swift */,
 				F60688D2278E454700E99BF0 /* PlacesManager.swift */,
-				F60688CD278E1E0B00E99BF0 /* Networking */,
 			);
 			path = Services;
 			sourceTree = "<group>";

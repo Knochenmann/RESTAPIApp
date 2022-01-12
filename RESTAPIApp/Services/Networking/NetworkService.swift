@@ -8,14 +8,6 @@
 import Foundation
 
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case delete = "DELETE"
-    case put = "PUT"
-}
-
-
 protocol Networking {
     func makeGetRequest(urlString: String, completion: @escaping (_ data: Data?, _ error: Error?) -> Void)
     func makePostRequest(with data: Data, urlString: String, completion: @escaping (_ data: Data?, _ error: Error?) -> Void)
@@ -36,6 +28,7 @@ class NetworkService: Networking {
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
         
         let task = createDataTask(from: request, completion: completion)

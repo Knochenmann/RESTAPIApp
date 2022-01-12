@@ -10,6 +10,7 @@ import Foundation
 
 protocol PlacesProtocol {
     func fetchPlaces(completion: @escaping ([Place]?) -> Void)
+    func removePlace(_ place: Place, completion: @escaping (_ error: Error?) -> Void)
     func push(place: Place, completion: @escaping (Place?) -> Void)
 }
 
@@ -31,6 +32,11 @@ class PlacesManager: PlacesProtocol {
     func push(place: Place, completion: @escaping (Place?) -> Void) {
         let urlString = "https://my-json-server.typicode.com/Knochenmann/demo/places"
         networkManager.push(object: place, to: urlString, response: completion)
+    }
+    
+    func removePlace(_ place: Place, completion: @escaping (_ error: Error?) -> Void) {
+        let urlString = "https://my-json-server.typicode.com/Knochenmann/demo/places/\(place.id)"
+        networkManager.delete(from: urlString, response: completion)
     }
     
 }
