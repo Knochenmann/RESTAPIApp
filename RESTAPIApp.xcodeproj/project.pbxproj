@@ -7,23 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F60688CF278E30AB00E99BF0 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60688CE278E30AB00E99BF0 /* JSONService.swift */; };
+		F60688D1278E317400E99BF0 /* NetworkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60688D0278E317400E99BF0 /* NetworkDataService.swift */; };
+		F60688D3278E454700E99BF0 /* PlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60688D2278E454700E99BF0 /* PlacesManager.swift */; };
 		F6C5DB78278AFB9E00F87354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DB77278AFB9E00F87354 /* AppDelegate.swift */; };
 		F6C5DB7A278AFB9E00F87354 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DB79278AFB9E00F87354 /* SceneDelegate.swift */; };
-		F6C5DB7C278AFB9E00F87354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DB7B278AFB9E00F87354 /* ViewController.swift */; };
-		F6C5DB7F278AFB9E00F87354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C5DB7D278AFB9E00F87354 /* Main.storyboard */; };
+		F6C5DB7C278AFB9E00F87354 /* PlacesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DB7B278AFB9E00F87354 /* PlacesListViewController.swift */; };
 		F6C5DB81278AFB9F00F87354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C5DB80278AFB9F00F87354 /* Assets.xcassets */; };
-		F6C5DB84278AFB9F00F87354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C5DB82278AFB9F00F87354 /* LaunchScreen.storyboard */; };
+		F6C5DB8D278AFDCD00F87354 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DB8C278AFDCD00F87354 /* PlaceTableViewCell.swift */; };
+		F6C5DBB1278B171A00F87354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C5DBB0278B171A00F87354 /* LaunchScreen.storyboard */; };
+		F6C5DBB5278B1A6D00F87354 /* StringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DBB4278B1A6D00F87354 /* StringService.swift */; };
+		F6C5DBB9278B22FB00F87354 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DBB8278B22FA00F87354 /* Place.swift */; };
+		F6C5DBBF278B5E9200F87354 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DBBE278B5E9200F87354 /* PlaceViewController.swift */; };
+		F6C5DBC1278B6D7700F87354 /* CoordinatesGeneratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DBC0278B6D7600F87354 /* CoordinatesGeneratorService.swift */; };
+		F6C5DBC3278B802700F87354 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DBC2278B802700F87354 /* MapPin.swift */; };
+		F6C5DBC5278B864500F87354 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C5DBC4278B864500F87354 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F60688CE278E30AB00E99BF0 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
+		F60688D0278E317400E99BF0 /* NetworkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataService.swift; sourceTree = "<group>"; };
+		F60688D2278E454700E99BF0 /* PlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesManager.swift; sourceTree = "<group>"; };
 		F6C5DB74278AFB9E00F87354 /* RESTAPIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RESTAPIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C5DB77278AFB9E00F87354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C5DB79278AFB9E00F87354 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F6C5DB7B278AFB9E00F87354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F6C5DB7E278AFB9E00F87354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6C5DB7B278AFB9E00F87354 /* PlacesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListViewController.swift; sourceTree = "<group>"; };
 		F6C5DB80278AFB9F00F87354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F6C5DB83278AFB9F00F87354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6C5DB85278AFB9F00F87354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6C5DB8C278AFDCD00F87354 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		F6C5DBB0278B171A00F87354 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F6C5DBB4278B1A6D00F87354 /* StringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringService.swift; sourceTree = "<group>"; };
+		F6C5DBB8278B22FA00F87354 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F6C5DBBE278B5E9200F87354 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		F6C5DBC0278B6D7600F87354 /* CoordinatesGeneratorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesGeneratorService.swift; sourceTree = "<group>"; };
+		F6C5DBC2278B802700F87354 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		F6C5DBC4278B864500F87354 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F60688CD278E1E0B00E99BF0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DBC4278B864500F87354 /* NetworkService.swift */,
+				F60688CE278E30AB00E99BF0 /* JSONService.swift */,
+				F60688D0278E317400E99BF0 /* NetworkDataService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		F6C5DB6B278AFB9E00F87354 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +84,78 @@
 		F6C5DB76278AFB9E00F87354 /* RESTAPIApp */ = {
 			isa = PBXGroup;
 			children = (
-				F6C5DB77278AFB9E00F87354 /* AppDelegate.swift */,
-				F6C5DB79278AFB9E00F87354 /* SceneDelegate.swift */,
-				F6C5DB7B278AFB9E00F87354 /* ViewController.swift */,
-				F6C5DB7D278AFB9E00F87354 /* Main.storyboard */,
-				F6C5DB80278AFB9F00F87354 /* Assets.xcassets */,
-				F6C5DB82278AFB9F00F87354 /* LaunchScreen.storyboard */,
-				F6C5DB85278AFB9F00F87354 /* Info.plist */,
+				F6C5DBB7278B22EB00F87354 /* Models */,
+				F6C5DBB0278B171A00F87354 /* LaunchScreen.storyboard */,
+				F6C5DBB3278B1A4C00F87354 /* Services */,
+				F6C5DBB2278B177600F87354 /* Scenes */,
+				F6C5DBB6278B224800F87354 /* Delegates */,
+				F6C5DBBC278B506900F87354 /* SupportingFiles */,
 			);
 			path = RESTAPIApp;
+			sourceTree = "<group>";
+		};
+		F6C5DB8B278AFD7B00F87354 /* PlacesList */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DB7B278AFB9E00F87354 /* PlacesListViewController.swift */,
+				F6C5DB8C278AFDCD00F87354 /* PlaceTableViewCell.swift */,
+			);
+			path = PlacesList;
+			sourceTree = "<group>";
+		};
+		F6C5DBB2278B177600F87354 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DBBD278B5E7B00F87354 /* Place */,
+				F6C5DB8B278AFD7B00F87354 /* PlacesList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F6C5DBB3278B1A4C00F87354 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DBB4278B1A6D00F87354 /* StringService.swift */,
+				F6C5DBC0278B6D7600F87354 /* CoordinatesGeneratorService.swift */,
+				F60688D2278E454700E99BF0 /* PlacesManager.swift */,
+				F60688CD278E1E0B00E99BF0 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F6C5DBB6278B224800F87354 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DB77278AFB9E00F87354 /* AppDelegate.swift */,
+				F6C5DB79278AFB9E00F87354 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		F6C5DBB7278B22EB00F87354 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DBB8278B22FA00F87354 /* Place.swift */,
+				F6C5DBC2278B802700F87354 /* MapPin.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F6C5DBBC278B506900F87354 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DB80278AFB9F00F87354 /* Assets.xcassets */,
+				F6C5DB85278AFB9F00F87354 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F6C5DBBD278B5E7B00F87354 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				F6C5DBBE278B5E9200F87354 /* PlaceViewController.swift */,
+			);
+			path = Place;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +216,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6C5DB84278AFB9F00F87354 /* LaunchScreen.storyboard in Resources */,
 				F6C5DB81278AFB9F00F87354 /* Assets.xcassets in Resources */,
-				F6C5DB7F278AFB9E00F87354 /* Main.storyboard in Resources */,
+				F6C5DBB1278B171A00F87354 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +228,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6C5DB7C278AFB9E00F87354 /* ViewController.swift in Sources */,
+				F6C5DBC5278B864500F87354 /* NetworkService.swift in Sources */,
+				F60688D1278E317400E99BF0 /* NetworkDataService.swift in Sources */,
+				F6C5DB7C278AFB9E00F87354 /* PlacesListViewController.swift in Sources */,
+				F6C5DB8D278AFDCD00F87354 /* PlaceTableViewCell.swift in Sources */,
 				F6C5DB78278AFB9E00F87354 /* AppDelegate.swift in Sources */,
+				F60688D3278E454700E99BF0 /* PlacesManager.swift in Sources */,
+				F60688CF278E30AB00E99BF0 /* JSONService.swift in Sources */,
+				F6C5DBC3278B802700F87354 /* MapPin.swift in Sources */,
+				F6C5DBBF278B5E9200F87354 /* PlaceViewController.swift in Sources */,
+				F6C5DBB9278B22FB00F87354 /* Place.swift in Sources */,
+				F6C5DBC1278B6D7700F87354 /* CoordinatesGeneratorService.swift in Sources */,
 				F6C5DB7A278AFB9E00F87354 /* SceneDelegate.swift in Sources */,
+				F6C5DBB5278B1A6D00F87354 /* StringService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F6C5DB7D278AFB9E00F87354 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6C5DB7E278AFB9E00F87354 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F6C5DB82278AFB9F00F87354 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6C5DB83278AFB9F00F87354 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F6C5DB86278AFB9F00F87354 /* Debug */ = {
@@ -291,12 +372,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HV5PMLH7Y7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RESTAPIApp/Info.plist;
+				INFOPLIST_FILE = RESTAPIApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +388,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,12 +401,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HV5PMLH7Y7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RESTAPIApp/Info.plist;
+				INFOPLIST_FILE = RESTAPIApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +417,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
