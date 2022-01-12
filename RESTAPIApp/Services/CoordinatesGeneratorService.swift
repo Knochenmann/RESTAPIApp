@@ -5,6 +5,7 @@
 //  Created by Егор Костюхин on 09.01.2022.
 //
 
+
 class CoordinatesGeneratorService {
     
     func latitude() -> Double {
