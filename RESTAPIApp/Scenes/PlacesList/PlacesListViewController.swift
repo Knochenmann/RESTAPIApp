@@ -142,7 +142,7 @@ class PlacesListViewController: UIViewController {
             longitude: coordenatesGenerator.longitude()
         )
         activityIndicator.startAnimating()
-        placesManager.push(place: newPlace) { [unowned self] place in
+        placesManager.pushPlace(newPlace) { [unowned self] place in
             guard let place = place else {
                 activityIndicator.stopAnimating()
                 showAlert(title: "Возникла ошибка", message: "Попробуйте повторить операцию позже.")
