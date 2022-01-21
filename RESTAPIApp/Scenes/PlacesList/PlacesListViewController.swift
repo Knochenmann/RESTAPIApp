@@ -26,7 +26,7 @@ class PlacesListViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let activityIndicator = UIActivityIndicatorView()
     
-    private let generatePlaceButton: UIButton = {
+    private let addNewPlaceButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.backgroundColor = UIColor.orange.cgColor
@@ -52,7 +52,7 @@ class PlacesListViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        generatePlaceButton.layer.cornerRadius = 10
+        addNewPlaceButton.layer.cornerRadius = 10
     }
     
     
@@ -121,37 +121,21 @@ class PlacesListViewController: UIViewController {
     }
     
     private func generatePlaceButtonSetup() {
-        view.addSubview(generatePlaceButton)
-        generatePlaceButton.setTitle(StringService.PlacesList.generatePlaceButtonTitle, for: .normal)
-        generatePlaceButton.addTarget(self, action: #selector(generatePlaceButtonDidSelect), for: .touchUpInside)
+        view.addSubview(addNewPlaceButton)
+        addNewPlaceButton.setTitle(StringService.PlacesList.addNewplace, for: .normal)
+        addNewPlaceButton.addTarget(self, action: #selector(addNewPlaceButtonDidSelect), for: .touchUpInside)
         NSLayoutConstraint.activate(
             [
-                generatePlaceButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-                generatePlaceButton.heightAnchor.constraint(equalToConstant: 40),
-                generatePlaceButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-                generatePlaceButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+                addNewPlaceButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+                addNewPlaceButton.heightAnchor.constraint(equalToConstant: 40),
+                addNewPlaceButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+                addNewPlaceButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
             ]
         )
     }
     
-    @objc private func generatePlaceButtonDidSelect() {
-        let newPlace = Place(
-            id: Int.random(in: 0...100),
-            name: "NewPlace",
-            latitude: coordenatesGenerator.latitude(),
-            longitude: coordenatesGenerator.longitude()
-        )
-        activityIndicator.startAnimating()
-        placesManager.pushPlace(newPlace) { [unowned self] place in
-            guard let place = place else {
-                activityIndicator.stopAnimating()
-                showAlert(title: "Возникла ошибка", message: "Попробуйте повторить операцию позже.")
-                return
-            }
-            activityIndicator.stopAnimating()
-            places.append(place)
-            tableView.insertRows(at: [IndexPath(row: places.count - 1, section: 0)], with: .automatic)
-        }
+    @objc private func addNewPlaceButtonDidSelect() {
+        showPlaceViewController(for: nil)
     }
     
     private func showAlert(title: String?, message: String?) {
@@ -177,9 +161,18 @@ class PlacesListViewController: UIViewController {
         }
     }
     
-    private func showMap(for place: Place) {
-        let placeVC = PlaceViewController()
-        placeVC.place = place
+    private func showPlaceViewController(for place: Place?) {
+        let placeVC = PlaceViewController(place: place) { [weak self] editedPlace in
+            if let editedPlace = editedPlace {
+                self?.placesManager.editPlace(editedPlace) { place in
+                    guard let place = place else {
+                        self?.showAlert(title: "Возникла ошибка", message: "Не удалось отредактировать \(editedPlace.name)")
+                        return
+                    }
+                    print("Editing of \(place.name) succeed.")
+                }
+            }
+        }
         navigationController?.pushViewController(placeVC, animated: true)
     }
     
@@ -210,7 +203,7 @@ extension PlacesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        showMap(for: places[indexPath.row])
+        showPlaceViewController(for: places[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -12,6 +12,7 @@ protocol NetworkManager {
     func fetchData<T: Decodable>(from urlString: String, response: @escaping (T?) -> Void)
     func push<T: Codable>(object: T, to urlString: String, response: @escaping (T?) -> Void)
     func delete(from urlString: String, response: @escaping (Error?) -> Void)
+    func put<T: Codable>(object: T, to urlString: String, response: @escaping (T?) -> Void)
 }
 
 
@@ -55,6 +56,22 @@ class NetworkDataService: NetworkManager {
             let decodedObject = coder.decodeJSON(type: T.self, from: data)
             response(decodedObject)
         }
+    }
+    
+    func put<T: Codable>(object: T, to urlString: String, response: @escaping (T?) -> Void) {
+        // Encoding the selected object:
+        guard let encodedData = coder.encode(object: object) else { return }
+    
+        networking.makePutRequest(with: encodedData, urlString: urlString) { [unowned self] data, error in
+            if let error = error {
+                print("An Error has been appeared while putting data. Details:\n\(error)")
+                response(nil)
+            }
+            
+            let decodedObject = coder.decodeJSON(type: T.self, from: data)
+            response(decodedObject)
+        }
+        
     }
     
     func delete(from urlString: String, response: @escaping (Error?) -> Void) {
